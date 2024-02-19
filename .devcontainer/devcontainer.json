@@ -11,8 +11,6 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"Dart-Code.flutter",
-				"Dart-Code.dart-code"
 			]
 		}
 	},
