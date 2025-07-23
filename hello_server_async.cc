@@ -19,6 +19,7 @@
 
 #include "absl/flags/flag.h"
 #include "absl/flags/parse.h"
+#include "absl/log/check.h"
 #include "absl/strings/str_format.h"
 #include "hello.grpc.pb.h"
 
@@ -113,7 +114,7 @@ public:
             else
             {
                 ABSL_LOG(INFO) << "finish";
-                GPR_ASSERT(status == FINISH);
+		CHECK_EQ(status, FINISH);
                 delete this;
             }
         }
@@ -180,8 +181,8 @@ public:
         bool ok;
         while (true)
         {
-            GPR_ASSERT(cq[i]->Next(&requestId, &ok));
-            GPR_ASSERT(ok);
+            CHECK(cq[i]->Next(&requestId, &ok));
+            CHECK(ok);
             static_cast<CallData *>(requestId)->Proceed();
         }
     }
@@ -219,3 +220,4 @@ int main(int argc, char **argv)
     server.Run();
     return 0;
 }
+

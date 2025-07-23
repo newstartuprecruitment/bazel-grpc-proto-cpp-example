@@ -1,5 +1,4 @@
-load("@com_github_grpc_grpc//bazel:cc_grpc_library.bzl", "cc_grpc_library")
-load("@rules_proto//proto:defs.bzl", "proto_library")
+load("@grpc//bazel:cc_grpc_library.bzl", "cc_grpc_library")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -40,9 +39,9 @@ cc_binary(
     srcs = ["hello_client.cc"],
     deps = [
         ":cc_grpc_hello_proto",
-        "@com_github_grpc_grpc//:grpc++",
-        "@com_google_absl//absl/flags:flag",
-        "@com_google_absl//absl/flags:parse",
+        "@grpc//:grpc++",
+        "@abseil-cpp//absl/flags:flag",
+        "@abseil-cpp//absl/flags:parse",
     ],
 )
 
@@ -52,10 +51,10 @@ cc_binary(
     defines = ["BAZEL_BUILD"],
     deps = [
         ":cc_grpc_hello_proto",
-        "@com_github_grpc_grpc//:grpc++",
-        "@com_google_absl//absl/flags:flag",
-        "@com_google_absl//absl/flags:parse",
-        "@com_google_absl//absl/strings:str_format",
+        "@grpc//:grpc++",
+        "@abseil-cpp//absl/flags:flag",
+        "@abseil-cpp//absl/flags:parse",
+        "@abseil-cpp//absl/strings:str_format",
     ],
 )
 
@@ -65,10 +64,10 @@ cc_binary(
     defines = ["BAZEL_BUILD"],
     deps = [
         ":cc_grpc_hello_proto",
-        "@com_github_grpc_grpc//:grpc++",
-        "@com_google_absl//absl/flags:flag",
-        "@com_google_absl//absl/flags:parse",
-        "@com_google_absl//absl/strings:str_format",
+        "@grpc//:grpc++",
+        "@abseil-cpp//absl/flags:flag",
+        "@abseil-cpp//absl/flags:parse",
+        "@abseil-cpp//absl/strings:str_format",
     ],
 )
 
@@ -78,9 +77,10 @@ cc_binary(
     defines = ["BAZEL_BUILD"],
     deps = [
         ":cc_grpc_hello_proto",
-        "@com_github_grpc_grpc//:grpc++",
-        "@com_google_absl//absl/flags:flag",
-        "@com_google_absl//absl/flags:parse",
-        "@com_google_absl//absl/strings:str_format",
+        "@grpc//:grpc++",
+        "@abseil-cpp//absl/flags:flag",
+        "@abseil-cpp//absl/flags:parse",
+        "@abseil-cpp//absl/strings:str_format",
     ],
 )
+

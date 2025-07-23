@@ -1,0 +1,16 @@
+bazel_dep(name = "rules_cc", version = "0.1.2")
+bazel_dep(name = "grpc", version = "1.73.1")
+bazel_dep(name = "abseil-cpp", version = "20250512.1")
+bazel_dep(name = "rules_boost", repo_name = "com_github_nelhage_rules_boost")
+archive_override(
+    module_name = "rules_boost",
+    urls = ["https://github.com/nelhage/rules_boost/archive/refs/heads/master.tar.gz"],
+    strip_prefix = "rules_boost-master",
+    integrity = "sha256-aSViuHoOdF32Ue/Cx02/mOzyEebHMFuifjZs4GNWjsE=",
+)
+non_module_boost_repositories = use_extension("@com_github_nelhage_rules_boost//:boost/repositories.bzl", "non_module_dependencies")
+use_repo(
+    non_module_boost_repositories,
+    "boost",
+)
+
